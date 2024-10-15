@@ -22,8 +22,19 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
+    Route::get('kanban', function() {
+        return view('kanban.index');
+    })
+    ->name('kanban');
+
+    Route::get('calendar', function() {
+        return view('calendar.index');
+    })
+    ->name('calendar');
+
     Route::get('chat', [HomeController::class, 'index'])
         ->name('chat');
+
     Route::get('messages', [HomeController::class, 'messages'])
         ->name('messages');
     Route::post('message', [HomeController::class, 'message'])

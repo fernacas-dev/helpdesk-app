@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "../../css/app.css";
-import ChatBox from "./ChatBox.jsx";
+import ChatBox from "../../components/Chat/ChatBox.jsx";
 
 if (document.getElementById("chat")) {
-    const rootUrl = "http://localhost:8000/admin";
+    const rootUrl = `${import.meta.env.VITE_APP_URL}/admin`;
 
     ReactDOM.createRoot(document.getElementById("chat")).render(
         <React.StrictMode>

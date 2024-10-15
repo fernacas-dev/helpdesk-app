@@ -12,5 +12,6 @@ import "./bootstrap";
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import "./components/Example.jsx";
-import "./components/Main.jsx";
+import "./apps/Chat/ChatApp.jsx";
+import "./apps/Kanban/index.jsx";
+import "./apps/Calendar/index.jsx";
