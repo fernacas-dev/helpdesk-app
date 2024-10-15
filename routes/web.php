@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,14 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+
+    Route::get('chat', [HomeController::class, 'index'])
+        ->name('chat');
+    Route::get('messages', [HomeController::class, 'messages'])
+        ->name('messages');
+    Route::post('message', [HomeController::class, 'message'])
+        ->name('message');
+
     Route::get('base', function(  ) {
         return view('voyager::base');
     });

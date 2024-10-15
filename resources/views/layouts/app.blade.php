@@ -3,14 +3,8 @@
     @vite('resources/css/app.css')
 @endsection
 
-@section('content')
-    <div class="page-content">
-        @include('voyager::alerts')
-        @include('voyager::dimmers')
-
-    </div>
-@endsection
 
 @section('javascript')
+    @viteReactRefresh
     @vite('resources/js/app.js')
 @endsection
