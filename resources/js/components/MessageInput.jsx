@@ -25,7 +25,15 @@ const MessageInput = ({ rootUrl }) => {
     };
 
     return (
-        <div className="input-group">
+        <div
+            className="input-group float-right"
+            style={{
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+            }}
+        >
             <input
                 onChange={(e) => setMessage(e.target.value)}
                 autoComplete="off"
@@ -33,11 +41,14 @@ const MessageInput = ({ rootUrl }) => {
                 className="form-control"
                 placeholder="Message..."
                 value={message}
+                style={{
+                    width: "80%",
+                }}
             />
             <div className="input-group-append">
                 <button
                     onClick={(e) => sendMessage(e)}
-                    className="btn btn-primary"
+                    className="btn btn-primary float-right"
                     type="button"
                 >
                     Send
