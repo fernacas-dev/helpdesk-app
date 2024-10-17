@@ -7,6 +7,11 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel
 {
+    protected $commands = [
+        \Webklex\IMAP\Commands\ImapIdleCommand::class,
+        \App\Console\Commands\CustomImapIdleCommand::class,
+    ];
+
     /**
      * Define the application's command schedule.
      */
@@ -17,6 +22,7 @@ class Kernel extends ConsoleKernel
 
     /**
      * Register the commands for the application.
+     *
      */
     protected function commands(): void
     {

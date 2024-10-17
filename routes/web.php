@@ -22,6 +22,11 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
+    Route::get('tickets', function() {
+        return view('tickets.index');
+    })
+    ->name('tickets');
+
     Route::get('kanban', function() {
         return view('kanban.index');
     })

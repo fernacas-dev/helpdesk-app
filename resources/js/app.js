@@ -15,3 +15,4 @@ import "./bootstrap";
 import "./apps/Chat/ChatApp.jsx";
 import "./apps/Kanban/index.jsx";
 import "./apps/Calendar/index.jsx";
+import "./apps/Table/index.jsx";
