@@ -22,7 +22,7 @@ Route::get('/', function () {
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 
-    Route::get('tickets', function() {
+    Route::get('tickets-board', function() {
         return view('tickets.index');
     })
     ->name('tickets');

@@ -42,4 +42,28 @@ class User extends \TCG\Voyager\Models\User
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    /**
+     * Many-to-many relationship with Team.
+     */
+    public function teams()
+    {
+        return $this->belongsToMany(Team::class, 'users_teams');
+    }
+
+    /**
+     * One-to-many relationship with Ticket (tickets created by the user).
+     */
+    public function createdTickets()
+    {
+        return $this->hasMany(Ticket::class, 'created_by');
+    }
+
+    /**
+     * One-to-many relationship with Ticket (tickets assigned to the user).
+     */
+    public function assignedTickets()
+    {
+        return $this->hasMany(Ticket::class, 'assigned_to');
+    }
 }
