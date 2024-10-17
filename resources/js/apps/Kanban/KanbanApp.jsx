@@ -1,3 +1,4 @@
+import { axios } from "../../config/axios";
 import { useState, useEffect } from "react";
 import TaskForm from "./components/TaskForm";
 import TaskColumn from "./components/TaskColumn";
@@ -8,6 +9,21 @@ const oldTasks = localStorage.getItem("tasks");
 const KanbanApp = () => {
     const [tasks, setTasks] = useState(JSON.parse(oldTasks) || []);
     const [activeCard, setActiveCard] = useState(null);
+
+    useEffect(() => {
+        function getTickets() {
+            axios
+                .get("/api/tickets")
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
+        getTickets();
+    }, []);
 
     useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));

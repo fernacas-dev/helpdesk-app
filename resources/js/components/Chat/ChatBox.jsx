@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Message from "./Message.jsx";
 import MessageInput from "./MessageInput.jsx";
 
@@ -20,7 +20,7 @@ const ChatBox = ({ rootUrl }) => {
         window.Echo.private(webSocketChannel).listen(
             "GotMessage",
             async (e) => {
-                // e.message
+                // e.messag
                 await getMessages();
             }
         );
