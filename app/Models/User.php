@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends \TCG\Voyager\Models\User
@@ -48,7 +49,12 @@ class User extends \TCG\Voyager\Models\User
      */
     public function teams()
     {
-        return $this->belongsToMany(Team::class, 'users_teams');
+        return $this->belongsToMany(
+            Team::class,
+            'users_teams',
+            'user_id',
+            'team_id'
+        );
     }
 
     /**
@@ -65,5 +71,11 @@ class User extends \TCG\Voyager\Models\User
     public function assignedTickets()
     {
         return $this->hasMany(Ticket::class, 'assigned_to');
+    }
+
+    public function scopeIsSupporter($query) {
+        $supportTeam = Team::where('name', 'Support')->first();
+        $users = $supportTeam->users();
+        return $users;
     }
 }
